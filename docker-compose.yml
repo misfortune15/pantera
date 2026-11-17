@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pantera-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pantera
+      POSTGRES_PASSWORD: pantera_dev_password
+      POSTGRES_DB: pantera
+    ports:
+      - "5432:5432"
+    volumes:
+      - pantera_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  pantera_postgres_data:
